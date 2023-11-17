@@ -1,0 +1,38 @@
+<form
+  (ngSubmit)="onSubmit()"
+  [formGroup]="form"
+  class="mt-20 bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[500px] items-center justify-center"
+>
+  <div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="input-field">
+      Add Item Name
+    </label>
+    <input
+      [ngClass]="{
+        'border-2 border-red-500':
+          form.controls['name'].invalid && form.controls['name'].touched
+      }"
+      class="font-mono shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="name"
+      type="text"
+      placeholder="Item name"
+      name="name"
+      formControlName="name"
+    />
+    <p
+      *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+      class="text-red-500 mt-2"
+    >
+      Please enter Item name
+    </p>
+  </div>
+  <div class="flex items-center justify-between">
+    <button
+      [disabled]="form.invalid"
+      class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-yellow-700"
+      type="submit"
+    >
+      {{ edit ? "Update" : "Add" }}
+    </button>
+  </div>
+</form>

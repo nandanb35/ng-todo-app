@@ -1,0 +1,25 @@
+<p *ngIf="items.length === 0" class="w-full text-center">No Items Added</p>
+<div
+  *ngFor="let item of items; let index = index"
+  class="flex flex-col gap-2 items-center justify-center"
+>
+  <div
+    class="p-2 rounded-lg my-1 bg-slate-400 cursor-pointer w-full text-white flex flex-row justify-between items-center"
+  >
+    <div>{{ item.name }}</div>
+    <div class="flex flex-row justify-between items-center gap-2">
+      <button
+        (click)="editItem(item)"
+        class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-yellow-700"
+      >
+        Edit
+      </button>
+      <button
+        (click)="deleteItem(item)"
+        class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-red-700"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

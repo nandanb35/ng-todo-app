@@ -1,5 +1,9 @@
 # TodoApp
 
+# Run server command
+
+npx json-server --watch db.json
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
 ## Development server
